@@ -6,5 +6,6 @@ open System.Web.Mvc
 type HomeController() =
     inherit Controller() 
     member this.Index() = 
-        let feeds = new FeedsController()
+        let feeds = new FeedsDataController()
         this.View(feeds.Get())
+

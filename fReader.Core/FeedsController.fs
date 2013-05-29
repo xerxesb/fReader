@@ -16,7 +16,10 @@ module Data =
         { id = "2"; name = "smbc"; url = "http://www.smbc-comics.com/rss.php" }
     ]
 
-type FeedsController() =
+type FeedsDataController() =
     inherit ApiController() 
     member this.Get() = Data.feeds
-        
+
+type FeedsController() =
+    inherit Controller()
+    member this.Details id = sprintf "Hello from Feeds controller with id %d" id
