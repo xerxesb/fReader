@@ -19,7 +19,10 @@ module Data =
 type FeedsDataController() =
     inherit ApiController() 
     member this.Get() = Data.feeds
+    member this.Get id = sprintf "This is the data inside the feed with id %d. The next step is to get this data using System.Web.WebClient" id
 
 type FeedsController() =
     inherit Controller()
-    member this.Details id = sprintf "Hello from Feeds controller with id %d" id
+    member this.Details id = 
+        let c = new FeedsDataController()
+        c.Get id
