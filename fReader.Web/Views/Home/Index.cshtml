@@ -14,7 +14,7 @@
 <body>
     @foreach (Feed feed in Model) {
         <div>
-            <a href="@feed.url">@feed.name</a>
+            @Html.ActionLink(feed.name, "Details", "Feeds", new { Id = feed.id }, null)
         </div>
     }
 </body>
