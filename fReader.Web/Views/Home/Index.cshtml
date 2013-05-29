@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Web.UI.WebControls
+@using fReader.Core
+@{
     Layout = null;
 }
 
@@ -7,11 +9,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Home</title>
+    <title>Feed List</title>
 </head>
 <body>
-    <div>
-        Hello @Model
-    </div>
+    @foreach (Feed feed in Model) {
+        <div>
+            <a href="@feed.url">@feed.name</a>
+        </div>
+    }
 </body>
 </html>

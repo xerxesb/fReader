@@ -108,9 +108,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeController.fs" />
-    <None Include="Script.fsx" />
     <Compile Include="FeedsController.fs" />
+    <Compile Include="HomeController.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
