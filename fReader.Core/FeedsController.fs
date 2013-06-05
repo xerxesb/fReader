@@ -22,10 +22,10 @@ type FeedsDataController() =
     inherit ApiController() 
     member this.Get() = Data.feeds
     member this.Get id = 
-        let feed = List.tryFind (fun x -> x.id = id) Data.feeds
         let client = new System.Net.Http.HttpClient()
-        feed |> Option.map (fun x -> client.GetStringAsync(x.url).Result) 
-             |> Option.getOrElse "Can't find feed"
+        Data.feeds |> List.tryFind (fun x -> x.id = id)
+                   |> Option.map (fun x -> client.GetStringAsync(x.url).Result) 
+                   |> Option.getOrElse "Can't find feed"
 
 type FeedsController() =
     inherit Controller()
