@@ -1,8 +1,10 @@
 ﻿namespace fReader.Core
 
 open System
+open System.Net
 open System.Web.Http
 open System.Web.Mvc
+open FSharpx
 
 type Feed = {
     id : string
@@ -19,7 +21,11 @@ module Data =
 type FeedsDataController() =
     inherit ApiController() 
     member this.Get() = Data.feeds
-    member this.Get id = sprintf "This is the data inside the feed with id %d. The next step is to get this data using System.Web.WebClient" id
+    member this.Get id = 
+        let feed = List.tryFind (fun x -> x.id = id) Data.feeds
+        let client = new System.Net.Http.HttpClient()
+        feed |> Option.map (fun x -> client.GetStringAsync(x.url).Result) 
+             |> Option.getOrElse "Can't find feed"
 
 type FeedsController() =
     inherit Controller()
