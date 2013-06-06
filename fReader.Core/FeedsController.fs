@@ -8,18 +8,18 @@ open FSharpx
 open QDFeedParser
 
 type Feed = {
-    id : string
+    id : int
     name : string
     url : string
 }
 
 module Data =
     let feeds = [ 
-        { id = "1"; name = "xkcd"; url = "http://xkcd.com/rss.xml" }
-        { id = "2"; name = "smbc"; url = "http://www.smbc-comics.com/rss.php" }
-        { id = "3"; name = "YC"; url = "http://feeds.feedburner.com/newsyc50" }
-        { id = "4"; name = "SO"; url = "http://blog.stackoverflow.com/feed" }
-        { id = "5"; name = "Troy Hunt"; url = "http://feeds.feedburner.com/TroyHunt" }
+        { id = 1; name = "xkcd"; url = "http://xkcd.com/rss.xml" }
+        { id = 2; name = "smbc"; url = "http://www.smbc-comics.com/rss.php" }
+        { id = 3; name = "YC"; url = "http://feeds.feedburner.com/newsyc50" }
+        { id = 4; name = "SO"; url = "http://blog.stackoverflow.com/feed" }
+        { id = 5; name = "Troy Hunt"; url = "http://feeds.feedburner.com/TroyHunt" }
     ]
 
 type FeedsDataController() =
