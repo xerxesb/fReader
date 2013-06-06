@@ -1,0 +1,22 @@
+﻿@using System.Web.Security.AntiXss
+@model QDFeedParser.IFeed
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@Model.Title</title>
+    </head>
+    <body>
+        @foreach(var item in @Model.Items) {
+            <section>
+                <h1><a href="@item.Link">@item.Title</a></h1>
+                <p>@Html.Raw(@item.Content)</p>
+            </section>
+        }
+    </body>
+</html>
